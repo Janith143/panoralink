@@ -1,0 +1,69 @@
+/* Products Page Styles */
+.pageWrapper {
+    background-color: var(--background);
+    /* Default light background */
+    min-height: 100vh;
+}
+
+/* Hero Section */
+.heroSection {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 8rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.heroTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    /* Dark text for light bg */
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.highlight {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    /* Brand blue gradient */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    .heroTitle {
+        font-size: 4rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1.25rem;
+    }
+}
+
+/* Products Container */
+.productsContainer {
+    padding: 4rem 0 0;
+    background: var(--background);
+    position: relative;
+}
+
+/* Ensure the shared OurProducts component inherits or works well here */
+/* We might need to style the container for it */

@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model asset {
+  id        String   @id
+  url       String
+  filename  String
+  mimeType  String
+  size      Int
+  createdAt DateTime @default(now())
+}
+
+model page {
+  id        String    @id
+  slug      String    @unique(map: "Page_slug_key")
+  title     String
+  metaDesc  String?
+  published Boolean   @default(false)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+  sections  section[]
+}
+
+model section {
+  id        String   @id
+  pageId    String
+  type      String
+  content   String   @db.LongText
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+  page      page     @relation(fields: [pageId], references: [id], onDelete: Cascade, map: "Section_pageId_fkey")
+
+  @@index([pageId], map: "Section_pageId_idx")
+}
+
+model setting {
+  key       String   @id
+  value     String   @db.Text
+  updatedAt DateTime
+}
+
+model subscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique(map: "Subscriber_email_key")
+  createdAt DateTime @default(now())
+}
+
+model ticket {
+  id        String   @id
+  ticketId  String   @unique(map: "Ticket_ticketId_key")
+  name      String
+  email     String
+  subject   String
+  priority  String
+  category  String
+  message   String   @db.Text
+  status    String   @default("OPEN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model user {
+  id        String   @id
+  email     String   @unique(map: "User_email_key")
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime
+}
+
+model Inquiry {
+  id          String   @id @default(uuid())
+  requirement String   @db.Text
+  name        String
+  mobile      String
+  email       String?
+  status      String   @default("NEW") // NEW, CONTACTED, CLOSED
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("inquiry")
+}
+
+
+model PartnerLogo {
+  id        String   @id @default(uuid())
+  name      String
+  image     String
+  link      String?
+  createdAt DateTime @default(now())
+
+  @@map("partnerlogo")
+}
+
+model BrandProduct {
+  id          String   @id @default(uuid())
+  name        String
+  description String   @db.Text
+  image       String
+  link        String?
+  tag         String?
+  createdAt   DateTime @default(now())
+  subProducts SubProduct[]
+
+  @@map("brandproduct")
+}
+
+model SubProduct {
+  id               String       @id @default(uuid())
+  name             String
+  image            String
+  shortDescription Json         // Stored as array of strings
+  longDescription  String       @db.LongText
+  price            String
+  whatsapp         String?
+  galleryImages    Json?        // Stored as array of strings
+  brandProductId   String
+  brandProduct     BrandProduct @relation(fields: [brandProductId], references: [id], onDelete: Cascade)
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+
+  @@map("subproduct")
+}
+
+model Review {
+  id          String   @id @default(uuid())
+  name        String
+  rating      Int
+  comment     String   @db.Text
+  designation String?
+  image       String?
+  isApproved  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("review")
+}

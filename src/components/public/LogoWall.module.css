@@ -1,0 +1,61 @@
+.section {
+    padding: 0.5rem 0 0;
+    background-color: #f8fafc;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.scroller {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+
+.track {
+    display: flex;
+    gap: 3rem;
+    padding: 0 1.5rem;
+    animation: scroll 30s linear infinite;
+    width: max-content;
+}
+
+.item {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: grayscale(100%);
+    opacity: 0.6;
+    transition: all 0.3s ease;
+}
+
+.item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}

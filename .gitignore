@@ -1,0 +1,63 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+*.log
+
+# local env files
+.env*.local
+.env
+production.env
+
+# prisma
+/prisma/sqlite.db
+
+/src/generated/prisma
+
+# uploaded media (server-side only, not versioned)
+/public/uploads/
+
+# large archives and build artifacts
+*.zip
+*.tar.gz
+
+# local debug/seed scripts
+check_db.js
+check_home.js
+check_home_recurrence.js
+check_pages.ts
+check_products_content.js
+fix_home.js
+list_sections.js
+republish_home.js
+seed_all_pages.js
+seed_home.js
+seed_homepage.js
+seed_professional_content.js
+seed_rich_content.js
+update_products_content.js
+verify_overhaul.js
+vps_restore.js
+simple_check_home.js
+local_data.sql
+build_error*.txt
+error_log.txt

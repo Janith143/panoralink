@@ -1,0 +1,98 @@
+.growthLogic {
+    padding: 6rem 0;
+    background: var(--white);
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+}
+
+.header p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.contentGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (min-width: 992px) {
+    .contentGrid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.visuals {
+    display: grid;
+    gap: 2rem;
+}
+
+.visualCard {
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.visualCard:hover {
+    transform: translateY(-5px);
+}
+
+.visualImage {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background-color: var(--surface-dark);
+}
+
+.visualCaption {
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: var(--secondary);
+    border-top: 1px solid var(--border);
+}
+
+.points {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.point {
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--primary-light);
+}
+
+.point h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+.point p {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.accent {
+    color: var(--primary);
+    font-weight: 600;
+}

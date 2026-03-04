@@ -1,0 +1,214 @@
+/* Careers Page Styles */
+
+.heroSection {
+    position: relative;
+    padding: 10rem 0 6rem;
+    overflow: hidden;
+    background: var(--gradient-primary);
+    color: var(--white);
+    text-align: center;
+}
+
+.heroBackground {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.heroPattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 10;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+    backdrop-filter: blur(10px);
+}
+
+.title {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+    color: var(--white);
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 4rem;
+    }
+}
+
+.subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Benefits Section */
+.benefitsSection {
+    padding: 6rem 0;
+    background: var(--surface);
+}
+
+.grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 4rem;
+}
+
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.benefitCard {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease;
+}
+
+.benefitCard:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-light);
+}
+
+.benefitIcon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background: var(--accent-light);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefitTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.benefitDesc {
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Openings Section */
+.openingsSection {
+    padding: 6rem 0;
+    background: var(--white);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sectionLabel {
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.sectionDesc {
+    font-size: 1.125rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    border: 2px dashed var(--border);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.emptyTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 1rem;
+}
+
+.emptyText {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--primary);
+    color: var(--white);
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}

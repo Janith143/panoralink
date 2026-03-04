@@ -1,0 +1,129 @@
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    /* Navbar height */
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.overlay {
+    /* Removed gradients for cleaner look */
+    display: none;
+}
+
+.heroContent {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.textContent {
+    z-index: 10;
+    position: relative;
+}
+
+.label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-light);
+    color: var(--white);
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.title {
+    font-size: 3.75rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    color: var(--secondary);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+
+.titleHighlight {
+    color: var(--primary);
+}
+
+.description {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 540px;
+    line-height: 1.6;
+}
+
+.actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.visual {
+    position: relative;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Soft shadow instead of colored glow */
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.1));
+}
+
+@media (max-width: 968px) {
+    .heroContent {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 3rem;
+    }
+
+    .description {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+
+    .visual {
+        height: 380px;
+    }
+}
+
+@media (max-width: 640px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .actions {
+        flex-direction: column;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+    }
+
+    .visual {
+        height: 280px;
+    }
+}
