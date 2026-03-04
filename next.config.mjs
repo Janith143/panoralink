@@ -6,6 +6,7 @@ const nextConfig = {
         },
     },
     images: {
+        unoptimized: true,
         // Allow locally uploaded images from /public/uploads/ to be served by Next.js Image
         localPatterns: [
             {
