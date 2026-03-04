@@ -139,7 +139,7 @@ export async function addBrandProduct(formData: FormData) {
             console.log(`[addBrandProduct] Attempting to create dir if needed and write to: ${join(uploadDir, filename)}`);
             await mkdir(uploadDir, { recursive: true });
             await writeFile(join(uploadDir, filename), buffer);
-            imagePath = `/uploads/${filename}`;
+            imagePath = `/api/uploads/${filename}`;
             console.log(`[addBrandProduct] Successfully wrote file. DB Path: ${imagePath}`);
         } catch (error) {
             console.error('[addBrandProduct] Error uploading file:', error);
@@ -218,7 +218,7 @@ export async function updateBrandProduct(id: string, formData: FormData) {
             console.log(`[updateBrandProduct] Attempting to create dir if needed and write to: ${join(uploadDir, filename)}`);
             await mkdir(uploadDir, { recursive: true });
             await writeFile(join(uploadDir, filename), buffer);
-            imagePath = `/uploads/${filename}`;
+            imagePath = `/api/uploads/${filename}`;
             console.log(`[updateBrandProduct] Successfully wrote file. DB Path: ${imagePath}`);
         } catch (error) {
             console.error('[updateBrandProduct] Error uploading file:', error);
@@ -293,7 +293,7 @@ export async function addSubProduct(formData: FormData) {
             const filename = `${Date.now()}-${image.name.replace(/\s+/g, '-')}`;
             const uploadDir = join(cwd(), 'public', 'uploads');
             await writeFile(join(uploadDir, filename), buffer);
-            imagePath = `/uploads/${filename}`;
+            imagePath = `/api/uploads/${filename}`;
         } catch (error) {
             console.error('Error uploading file:', error);
             return { success: false, error: 'Failed to upload image' };
@@ -389,7 +389,7 @@ export async function updateSubProduct(id: string, brandId: string, formData: Fo
             const filename = `${Date.now()}-${image.name.replace(/\s+/g, '-')}`;
             const uploadDir = join(cwd(), 'public', 'uploads');
             await writeFile(join(uploadDir, filename), buffer);
-            imagePath = `/uploads/${filename}`;
+            imagePath = `/api/uploads/${filename}`;
         } catch (error) {
             console.error('Error uploading file:', error);
             return { success: false, error: 'Failed to upload image' };
@@ -520,7 +520,7 @@ export async function uploadImage(formData: FormData) {
     const filename = uniqueSuffix + '-' + file.name.replace(/\s+/g, '-');
     const uploadDir = join(process.cwd(), 'public', 'uploads');
     const filepath = join(uploadDir, filename);
-    const publicUrl = `/uploads/${filename}`;
+    const publicUrl = `/api/uploads/${filename}`;
 
     try {
         // Ensure the uploads directory exists (important on first run / fresh deployment)
