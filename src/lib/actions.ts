@@ -130,19 +130,26 @@ export async function addBrandProduct(formData: FormData) {
     let imagePath = '';
 
     if (image instanceof File && image.size > 0) {
+        console.log(`[addBrandProduct] Received file: ${image.name}, size: ${image.size}, type: ${image.type}`);
         try {
             const buffer = Buffer.from(await image.arrayBuffer());
             const filename = `${Date.now()}-${image.name.replace(/\s+/g, '-')}`;
             const uploadDir = join(cwd(), 'public', 'uploads');
 
+            console.log(`[addBrandProduct] Attempting to create dir if needed and write to: ${join(uploadDir, filename)}`);
+            await mkdir(uploadDir, { recursive: true });
             await writeFile(join(uploadDir, filename), buffer);
             imagePath = `/uploads/${filename}`;
+            console.log(`[addBrandProduct] Successfully wrote file. DB Path: ${imagePath}`);
         } catch (error) {
-            console.error('Error uploading file:', error);
+            console.error('[addBrandProduct] Error uploading file:', error);
             return { success: false, error: 'Failed to upload image' };
         }
     } else if (typeof image === 'string') {
+        console.log(`[addBrandProduct] Received string image: ${image}`);
         imagePath = image;
+    } else {
+        console.log(`[addBrandProduct] Missing or invalid image parameter:`, image);
     }
 
     const rawData = {
@@ -203,16 +210,22 @@ export async function updateBrandProduct(id: string, formData: FormData) {
     let imagePath = currentImage as string;
 
     if (image instanceof File && image.size > 0) {
+        console.log(`[updateBrandProduct] Received new file: ${image.name}, size: ${image.size}, type: ${image.type}`);
         try {
             const buffer = Buffer.from(await image.arrayBuffer());
             const filename = `${Date.now()}-${image.name.replace(/\s+/g, '-')}`;
             const uploadDir = join(cwd(), 'public', 'uploads');
+            console.log(`[updateBrandProduct] Attempting to create dir if needed and write to: ${join(uploadDir, filename)}`);
+            await mkdir(uploadDir, { recursive: true });
             await writeFile(join(uploadDir, filename), buffer);
             imagePath = `/uploads/${filename}`;
+            console.log(`[updateBrandProduct] Successfully wrote file. DB Path: ${imagePath}`);
         } catch (error) {
-            console.error('Error uploading file:', error);
+            console.error('[updateBrandProduct] Error uploading file:', error);
             return { success: false, error: 'Failed to upload image' };
         }
+    } else {
+        console.log(`[updateBrandProduct] No new file received, keeping currentImage: ${currentImage}`);
     }
 
     const rawData = {
