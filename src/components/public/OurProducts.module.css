@@ -305,11 +305,52 @@
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-top: 1rem;
 }
 
+/* Base Link (for grid view .productCard) */
+.link {
+    background: #3f36bd;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.link:hover {
+    background: #4f46e5;
+    transform: translateY(-2px);
+}
+
+.secondaryLink {
+    background: transparent;
+    border: 1px solid #cbd5e1;
+    color: #475569;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.secondaryLink:hover {
+    background: #f8fafc;
+    border-color: #94a3b8;
+    color: #0f172a;
+    transform: translateY(-2px);
+}
+
+/* Premium Card specific link styles */
 .premiumCard .link {
     background: #3f36bd;
-    /* Primary button color */
     color: white;
     padding: 1rem 2.5rem;
     border-radius: 8px;
@@ -327,7 +368,7 @@
 }
 
 /* For the "Learn More" transparent button style */
-.secondaryLink {
+.premiumCard .secondaryLink {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.2);
     padding: 1rem 2.5rem;
@@ -342,7 +383,7 @@
     transition: all 0.2s ease;
 }
 
-.secondaryLink:hover {
+.premiumCard .secondaryLink:hover {
     background: rgba(255, 255, 255, 0.1);
     border-color: white;
     transform: translateY(-2px);
@@ -497,51 +538,12 @@
 }
 
 /* Buttons */
-.btnGroup {
+.premiumCard .btnGroup {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     width: 100%;
     justify-content: flex-end;
-}
-
-.premiumCard .link {
-    background: #3f36bd;
-    color: white;
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.premiumCard .link:hover {
-    background: #4f46e5;
-    transform: translateY(-2px);
-}
-
-.secondaryLink {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    padding: 1rem 2.5rem;
-    border-radius: 8px;
-    color: white;
-    font-weight: 600;
-    backdrop-filter: blur(10px);
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s ease;
-}
-
-.secondaryLink:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: white;
-    transform: translateY(-2px);
 }
 
 /* Sub Products Logic Override */
